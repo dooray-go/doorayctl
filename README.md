@@ -17,7 +17,7 @@ $ sudo mv doorayctl.darwin.arm64 /usr/local/bin/doorayctl
     * ~/.doorayctl/config
 ```json
 {
-    "token":"ajjt1imxmtj4:tVbT3BiBTQ63EfNI3xlf5A"
+    "token":"YOUR_DOORAY_API_TOKEN"
 }
 ```     
 
