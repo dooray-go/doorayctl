@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/dooray-go/dooray/openapi/account"
+	"github.com/dooray-go/dooray/openapi/calendar"
 	"github.com/dooray-go/dooray/openapi/messenger"
 	"log/slog"
 	"os"
@@ -16,7 +17,11 @@ func main() {
 	if len(os.Args) < 3 {
 		return
 	}
-	command, _ := validateAndGetSubCommand(os.Args[1])
+	command, err := validateAndGetSubCommand(os.Args[1])
+	if err != nil {
+		log.Warn("invalid command", "command", os.Args[1])
+		return
+	}
 
 	env, err := getEnv()
 	if err != nil {
@@ -56,15 +61,36 @@ func main() {
 				log.Warn("Report Failed.", "error", err)
 				return
 			}
+		}
 
+	case "calendar":
+		if len(os.Args) > 2 {
+			if os.Args[2] == "list" {
+				calendarClient := calendar.NewDefaultCalendar()
+				calendarsResponse, err := calendarClient.GetCalendars(env.Token)
+				if err != nil {
+					log.Warn("Get Calendars Failed.", "error", err)
+					return
+				}
+
+				err = result.PrintCalendarsResult(calendarsResponse)
+				if err != nil {
+					log.Warn("Get Calendars Failed.", "error", err)
+					return
+				}
+			} else {
+				log.Warn("invalid command", "command", os.Args[2])
+			}
 		}
 	}
+
 }
 
 var subCommands = map[string]struct{}{
 	"account":   {},
 	"messenger": {},
 	"project":   {},
+	"calendar":  {},
 }
 
 func validateAndGetSubCommand(sub string) (string, error) {
