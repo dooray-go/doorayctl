@@ -6,7 +6,10 @@
   * [doorayctl](https://github.com/dooray-go/doorayctl/releases)
 * 실행가능한 디렉토리로 파일이 복사되면 됩니다.
   * 예) /usr/local/bin
+```bash
+$ sudo mv doorayctl.darwin.arm64 /usr/local/bin/doorayctl
 
+```
 ## 설정
 * doorayctl은 dooray의 open-api를 사용하는 cli 톨이므로, 사용하기 위해서는 dooray api token이 필요합니다.
 * dooray api token은 dooray의 설정에서 발급받을 수 있습니다.
