@@ -38,3 +38,11 @@ ID                  SUCCESS
 1231321321321321321 true
 
 ```
+
+* 캘린더 목록 조회
+```bash
+$ doorayctl calendar list
+ID                  NAME             TYPE         CREATED_AT           OWNER
+1231232132132132131 정지범1            private      2016-07-30T02:25:01Z 1111111111111111111
+1231232132132132132 정지범2            private      2016-08-01T00:53:51Z 1111111111111111111
+```
