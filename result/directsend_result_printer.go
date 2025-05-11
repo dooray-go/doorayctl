@@ -8,7 +8,7 @@ import (
 
 func PrintMessengerResult(result *model.DirectSendResponse) error {
 	prn, err := klo.PrinterFromFlag("",
-		&klo.Specs{DefaultColumnSpec: "ID:{.id},NAME:{.name},EXTERNAL_EMAIL:{.externalEmailAddress}"})
+		&klo.Specs{DefaultColumnSpec: "ID:{.result.id},SUCCESS:{.header.isSuccessful}"})
 
 	if err != nil {
 		return err
@@ -18,7 +18,7 @@ func PrintMessengerResult(result *model.DirectSendResponse) error {
 	if err != nil {
 		panic(err)
 	}
-	err = table.Fprint(os.Stdout, result.Result)
+	err = table.Fprint(os.Stdout, result)
 	if err != nil {
 		return err
 	}

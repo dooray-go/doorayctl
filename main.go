@@ -47,6 +47,13 @@ func main() {
 				OrganizationMemberId: os.Args[2],
 			})
 			if err != nil {
+				log.Warn("Messenger Send Failed.", "error", err)
+				return
+			}
+
+			err = result.PrintMessengerResult(sendResult)
+			if err != nil {
+				log.Warn("Report Failed.", "error", err)
 				return
 			}
 
