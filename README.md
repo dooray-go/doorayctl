@@ -14,7 +14,7 @@ $ sudo mv doorayctl.darwin.arm64 /usr/local/bin/doorayctl
 * doorayctl은 dooray의 open-api를 사용하는 cli 톨이므로, 사용하기 위해서는 dooray api token이 필요합니다.
 * dooray api token은 dooray의 설정에서 발급받을 수 있습니다.
 * doorayctl을 실행하기 전에 dooray api token을 다음의 파일에 저장합니다. 
-    * ~/.doorayctl/config
+    * ~/.dooray/config
 ```json
 {
     "token":"YOUR_DOORAY_API_TOKEN"
