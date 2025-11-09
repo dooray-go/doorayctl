@@ -1,15 +1,15 @@
 package result
 
 import (
-	model "github.com/dooray-go/dooray/openapi/model/calendar"
+	model "github.com/dooray-go/dooray/openapi/model/project"
 	"github.com/zbum/klo"
 	"os"
 )
 
-func PrintCalendarsResult(result *model.GetCalendarsResponse) error {
+func PrintProjectsResult(result *model.GetProjectsResponse) error {
 	specs := &klo.Specs{
-		DefaultColumnSpec: "ID:{.id},NAME:{.name},TYPE:{.type},CREATED_AT:{.createdAt},OWNER:{.ownerOrganizationMemberId}",
-		WideColumnSpec:    "NAME:{.name},CREATED_AT:{.createdAt}",
+		DefaultColumnSpec: "ID:{.id},CODE:{.code},TYPE:{.type},SCOPE:{.scope},STATE:{.state}",
+		WideColumnSpec:    "CODE:{.code},TYPE:{.type},SCOPE:{.scope},DESCRIPTION:{.description}",
 	}
 	prn, err := klo.PrinterFromFlag("", specs)
 
