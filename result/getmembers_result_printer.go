@@ -2,7 +2,7 @@ package result
 
 import (
 	model "github.com/dooray-go/dooray/openapi/model/account"
-	"github.com/thediveo/klo"
+	"github.com/zbum/klo"
 	"os"
 )
 
