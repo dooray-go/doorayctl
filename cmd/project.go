@@ -18,6 +18,23 @@ var (
 	toMemberIds         string
 	postWorkflowClasses string
 
+	// post list additional flags
+	postPage            int
+	postSize            int
+	fromEmailAddress    string
+	fromMemberIds       string
+	ccMemberIdsFilter   string
+	tagIds              string
+	parentPostId        string
+	postNumber          string
+	postWorkflowIds     string
+	milestoneIdsFilter  string
+	subjects            string
+	createdAt           string
+	updatedAt           string
+	dueAt               string
+	order               string
+
 	// post create flags
 	subject     string
 	content     string
@@ -85,8 +102,33 @@ var postListCmd = &cobra.Command{
 
 		projectId := args[0]
 
+		opts := project.GetPostsOptions{
+			ToMemberIds:         toMemberIds,
+			PostWorkflowClasses: postWorkflowClasses,
+			FromEmailAddress:    fromEmailAddress,
+			FromMemberIds:       fromMemberIds,
+			CcMemberIds:         ccMemberIdsFilter,
+			TagIds:              tagIds,
+			ParentPostId:        parentPostId,
+			PostNumber:          postNumber,
+			PostWorkflowIds:     postWorkflowIds,
+			MilestoneIds:        milestoneIdsFilter,
+			Subjects:            subjects,
+			CreatedAt:           createdAt,
+			UpdatedAt:           updatedAt,
+			DueAt:               dueAt,
+			Order:               order,
+		}
+
+		if cmd.Flags().Changed("page") {
+			opts.Page = &postPage
+		}
+		if cmd.Flags().Changed("size") {
+			opts.Size = &postSize
+		}
+
 		projectClient := project.NewDefaultProject()
-		postsResponse, err := projectClient.GetPosts(env.Token, projectId, toMemberIds, postWorkflowClasses)
+		postsResponse, err := projectClient.GetPostsWithOptions(env.Token, projectId, opts)
 		if err != nil {
 			log.Warn("Get Posts Failed.", "error", err)
 			return
@@ -204,8 +246,23 @@ func init() {
 	projectListCmd.Flags().StringVarP(&scope, "scope", "s", "", "Project scope (e.g., public, private)")
 	projectListCmd.Flags().StringVar(&state, "state", "", "Project state (e.g., active, archived)")
 
-	postListCmd.Flags().StringVar(&toMemberIds, "to-members", "", "Filter by member IDs (comma-separated)")
+	postListCmd.Flags().IntVar(&postPage, "page", 0, "Page number (default: 0)")
+	postListCmd.Flags().IntVar(&postSize, "size", 20, "Page size (default: 20, max: 100)")
+	postListCmd.Flags().StringVar(&fromEmailAddress, "from-email", "", "Filter by creator email address")
+	postListCmd.Flags().StringVar(&fromMemberIds, "from-members", "", "Filter by creator member IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&toMemberIds, "to-members", "", "Filter by assignee member IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&ccMemberIdsFilter, "cc-members", "", "Filter by CC member IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&tagIds, "tag-ids", "", "Filter by tag IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&parentPostId, "parent-post-id", "", "Filter by parent post ID")
+	postListCmd.Flags().StringVar(&postNumber, "post-number", "", "Filter by post number")
 	postListCmd.Flags().StringVar(&postWorkflowClasses, "workflow-classes", "", "Filter by workflow classes (e.g., registered,working,closed)")
+	postListCmd.Flags().StringVar(&postWorkflowIds, "workflow-ids", "", "Filter by workflow IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&milestoneIdsFilter, "milestone-ids", "", "Filter by milestone IDs (comma-separated)")
+	postListCmd.Flags().StringVar(&subjects, "subjects", "", "Filter by subject title")
+	postListCmd.Flags().StringVar(&createdAt, "created-at", "", "Filter by creation time (today, thisweek, prev-{N}d, next-{N}d, or ISO8601 range)")
+	postListCmd.Flags().StringVar(&updatedAt, "updated-at", "", "Filter by update time")
+	postListCmd.Flags().StringVar(&dueAt, "due-at", "", "Filter by due date")
+	postListCmd.Flags().StringVar(&order, "order", "", "Sort order (postDueAt, postUpdatedAt, createdAt, -createdAt)")
 
 	postCreateCmd.Flags().StringVarP(&subject, "subject", "s", "", "Post subject (required)")
 	postCreateCmd.Flags().StringVarP(&content, "content", "c", "", "Post content (required)")
