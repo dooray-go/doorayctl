@@ -2,13 +2,30 @@
 * dooray open api 를 사용하는 cli tool 입니다.
 
 ## 설치
-* 사용할 컴퓨터의 아키텍처에 맞는 doorayctl 바이너리를 다운로드 합니다.
-  * [doorayctl](https://github.com/dooray-go/doorayctl/releases)
-* 실행가능한 디렉토리로 파일이 복사되면 됩니다.
-  * 예) /usr/local/bin
-```bash
-$ sudo mv doorayctl.darwin.arm64 /usr/local/bin/doorayctl
 
+### Homebrew (macOS / Linux)
+```bash
+brew tap dooray-go/tap
+brew install doorayctl
+```
+
+업그레이드:
+```bash
+brew upgrade doorayctl
+```
+
+### 직접 다운로드
+[GitHub Releases](https://github.com/dooray-go/doorayctl/releases)에서 플랫폼에 맞는 바이너리를 다운로드합니다.
+
+```bash
+# macOS (Apple Silicon)
+sudo mv doorayctl.darwin.arm64 /usr/local/bin/doorayctl
+
+# macOS (Intel)
+sudo mv doorayctl.darwin.amd64 /usr/local/bin/doorayctl
+
+# Linux (amd64)
+sudo mv doorayctl.linux.amd64 /usr/local/bin/doorayctl
 ```
 ## 설정
 * doorayctl은 dooray의 open-api를 사용하는 cli 톨이므로, 사용하기 위해서는 dooray api token이 필요합니다.
