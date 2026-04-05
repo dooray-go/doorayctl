@@ -1,7 +1,7 @@
 package result
 
 import (
-	model "github.com/dooray-go/dooray/openapi/model/project"
+	model "github.com/dooray-go/dooray-sdk/openapi/model/project"
 	"github.com/zbum/klo"
 	"os"
 )

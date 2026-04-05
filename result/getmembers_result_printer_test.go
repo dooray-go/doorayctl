@@ -1,7 +1,7 @@
 package result
 
 import (
-	"github.com/dooray-go/dooray/openapi/model/account"
+	"github.com/dooray-go/dooray-sdk/openapi/model/account"
 	"testing"
 )
 

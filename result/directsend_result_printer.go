@@ -1,7 +1,7 @@
 package result
 
 import (
-	model "github.com/dooray-go/dooray/openapi/model/messenger"
+	model "github.com/dooray-go/dooray-sdk/openapi/model/messenger"
 	"github.com/zbum/klo"
 	"os"
 )

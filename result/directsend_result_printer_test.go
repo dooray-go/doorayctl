@@ -1,8 +1,8 @@
 package result
 
 import (
-	"github.com/dooray-go/dooray/openapi/model"
-	messengermodel "github.com/dooray-go/dooray/openapi/model/messenger"
+	"github.com/dooray-go/dooray-sdk/openapi/model"
+	messengermodel "github.com/dooray-go/dooray-sdk/openapi/model/messenger"
 	"testing"
 )
 

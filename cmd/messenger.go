@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/dooray-go/dooray/openapi/messenger"
+	"github.com/dooray-go/dooray-sdk/openapi/messenger"
 	"github.com/spf13/cobra"
 )
 

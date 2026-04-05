@@ -3,10 +3,11 @@ module doorayctl
 go 1.26.1
 
 require (
-	github.com/dooray-go/dooray v0.3.1
+	github.com/dooray-go/dooray-sdk v0.4.1
 	github.com/spf13/cobra v1.10.1
-	github.com/zbum/klo v1.2.0
 )
+
+require github.com/zbum/klo v1.2.0
 
 require (
 	github.com/clipperhouse/uax29/v2 v2.2.0 // indirect

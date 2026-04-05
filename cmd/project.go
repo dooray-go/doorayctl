@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dooray-go/dooray/openapi/project"
-	model "github.com/dooray-go/dooray/openapi/model/project"
+	"github.com/dooray-go/dooray-sdk/openapi/project"
+	model "github.com/dooray-go/dooray-sdk/openapi/model/project"
 	"github.com/spf13/cobra"
 )
 

@@ -1,7 +1,7 @@
 package result
 
 import (
-	model "github.com/dooray-go/dooray/openapi/model/calendar"
+	model "github.com/dooray-go/dooray-sdk/openapi/model/calendar"
 	"testing"
 )
 

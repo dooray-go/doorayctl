@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/dooray-go/dooray/openapi/account"
+	"github.com/dooray-go/dooray-sdk/openapi/account"
 	"github.com/spf13/cobra"
 )
 
