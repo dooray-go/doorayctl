@@ -2,7 +2,7 @@ module doorayctl
 
 go 1.22.2
 
-replace github.com/dooray-go/dooray v0.2.0 => ../dooray-go
+replace github.com/dooray-go/dooray v0.2.0 => ../dooray
 
 //replace github.com/thediveo/klo v1.1.0 => ../klo
 
