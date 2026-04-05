@@ -1,3 +1,5 @@
-build/doorayctl.*
+dist/
 *.iml
 .idea/
+go.work
+go.work.sum

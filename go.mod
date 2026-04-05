@@ -1,13 +1,9 @@
 module doorayctl
 
-go 1.22.2
-
-replace github.com/dooray-go/dooray v0.2.0 => ../dooray
-
-//replace github.com/thediveo/klo v1.1.0 => ../klo
+go 1.26.1
 
 require (
-	github.com/dooray-go/dooray v0.2.0
+	github.com/dooray-go/dooray v0.3.1
 	github.com/spf13/cobra v1.10.1
 	github.com/zbum/klo v1.2.0
 )
