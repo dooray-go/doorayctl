@@ -1,3 +1,6 @@
+> 해당 기능은 비공식이며 , 커뮤니티 기여용 도구입니다. NHN Dooray 서비스에서 제공하는 기능이 아님을 밝혀 둡니다.
+
+
 # doorayctl
 * dooray open api 를 사용하는 cli tool 입니다.
 
